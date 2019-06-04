@@ -1,0 +1,19 @@
+DROP DATABASE IF EXISTS Amazon_DB;
+CREATE DATABASE Amazon_DB;
+
+USE Amazon_DB;
+
+CREATE TABLE ItemsForSale(
+id INT NOT NULL AUTO_INCREMENT,
+item_name VARCHAR (50) NOT NULL,
+category VARCHAR(40) NOT NULL,
+price_item INT default (0),
+PRIMARY KEY (id)
+);
+
+CREATE TABLE Adress(
+Street_name VARCHAR (70) NOT NULL,
+City VARCHAR (70) NOT NULL,
+State VARCHAR (25) NOT NULL,
+Country VARCHAR (37) NOT NULL
+);
