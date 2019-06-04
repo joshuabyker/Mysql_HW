@@ -1,8 +1,10 @@
 var mysql = require("mysql");
 
 var inquirer = require("inquirer");
+
 var Electronics = ["Iphone X", "PS4", "Beats By Dre"];
 var Housewear = ["Blender", "Toaster", "Pots"];
+
 
 var connection = mysql.createConnection({
     host: "localhost",
@@ -28,27 +30,36 @@ function start(){
         name: "Buy",
         type: "list",
         message:"What would you like to buy today?",
-        choices: [Electronics,Housewear]
+        choices: ["Electronics","Housewear"]
     })
     .then(function(answer){
-        if(answer.Buy === Electronics){
-            console.log("Which Item would you like to buy today?"+  inquirer
-            .prompt({
-                name: "Electronics",
-                type: "list",
-                message:"What would you like to buy today?",
-                choices: ["Iphone X", "PS4", "Beats By Dre"]
-            }));
+        if(answer.Buy === "Electronics"){
+            BuyItem();
+           
         }
-        else if(answer.Buy === Housewear){
-            console.log("How would you like to spice up the kitchen today?"+inquirer
-            .prompt({
-                name: "Electronics",
-                type: "list",
-                message:"What would you like to buy today?",
-                choices: ["Blender", "Toaster", "Pots"]
-            })); 
+        else if(answer.Buy === "Housewear"){
+            BuyItem();
         }
+        });
         
-    })
-}
+        function BuyItem(){
+            console.log("Which Item would make you more stylish today?"+
+            inquirer
+            .prompt([{
+                name:"Electronics",
+                type: "list",
+                message:"Which of these item's captures your eyes?",
+                choices:["IphoneX", "PS4", "Beats By Dre"]
+                
+            },
+        {
+            name:"Purchase",
+            type:"list",
+            message:"which version would you like?",
+            choices:["New:$900", "Used: $700"]
+
+        }
+        ])
+      
+
+            )}}
