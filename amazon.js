@@ -59,7 +59,34 @@ function start(){
             choices:["New:$900", "Used: $700"]
 
         }
-        ])
+        ]),
+        inquirer
+        .prompt([{
+            name:"Housewear",
+            type:"list",
+            message:"How can we spice up your house today?",
+            choices:["Blender", "Toaster", "Pots"]
+        }]),
+        {
+            name:"Purchase",
+            type:"list",
+            message:"Great Item, we have that!",
+            choices:["$300"]
+
+        }
+    
+        // function ShippinInfo(){
+           
+        //             inquirer
+        //             .prompt([{
+        //                 name:"state",
+        //                 type:"input",
+        //                 message:"What is your postal address?"
+        //             }])
+                
+        //     }
+
+        
       
 
             )}}
